@@ -1,13 +1,17 @@
 
-# connect-memcached
+# connect-memjs
 
-  Memcached session store, using [node-memcached](http://github.com/3rd-Eden/node-memcached) for communication with cache server.
+  Memcached session store forked from using [connect-memcached](https://github.com/balor/connect-memcached), using [memjs](https://github.com/alevy/memjs) as the underlying memcached client.
+
+  This enables faster binary transport and authentication, which is needed to use the [Memcachier](https://www.memcachier.com) service.
+
+  Many thanks to [balor](https://github.com/balor) who wrote the original implementation - this module simply swaps out the memcached client.
 
 ## Installation
 
   via npm:
 
-      $ npm install connect-memcached
+      $ npm install connect-memjs
 
 ## Example
 
@@ -19,7 +23,7 @@
 
       // pass the express to the connect memcached module
       // allowing it to inherit from express.session.Store
-      var MemcachedStore = require('connect-memcached')(express);
+      var MemcachedStore = require('connect-memjs')(express);
 
       var app = express.createServer();
 
@@ -36,9 +40,10 @@
       // - req.sessionStore
       // - req.sessionID (or req.session.id)
 
+      var store = new MemcachedStore({servers: ['127.0.0.1:1121'], username: 'liam', password: 'hunter2'});
       app.use(express.session({ 
         secret: 'CatOnTheKeyboard', 
-        store: new MemcachedStore 
+        store:  
       }));
 
       app.get('/', function(req, res){
@@ -55,18 +60,20 @@
 
 ## Options
 
-    - `hosts` Memcached servers locations, can by string, array, hash.
+    - `servers` Memcached servers locations, as an array of strings.
+    - `username` An optional username to authenticate with
+    - `password` An optional password to authenticate with
     - `prefix` An optional prefix for each memcache key, in case you are sharing 
                your memcached servers with something generating its own keys. 
     - ...     Rest of given option will be passed directly to the node-memcached constructor.
 
-  For details see [node-memcached](http://github.com/3rd-Eden/node-memcached).
+  For details see [memjs](https://github.com/alevy/memjs).
 
 ## License 
 
 (The MIT License)
 
-Copyright (c) 2011 Michał Thoma &lt;michal@balor.pl&gt;
+Copyright (c) 2013 Liam Don &lt;liamdon@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

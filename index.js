@@ -1,2 +1,2 @@
 
-module.exports = require('./lib/connect-memcached');
+module.exports = require('./lib/connect-memjs');

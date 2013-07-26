@@ -1,3 +1,8 @@
+0.0.4 / 2013-07-25
+==================
+
+  * Forked connect-memcached module and replaced node-memcached with memjs as underlying client.
+
 0.0.3 / 2012-03-06
 ==================
 

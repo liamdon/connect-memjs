@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/liamdon/connect-memjs"
   }
-  , "dependencies": { "memjs": ">= 0.8.0" }
+  , "dependencies": { "memjs": ">= 0.8.1" }
   , "devDependencies": { "connect": ">= 1.4.x" }
   , "main": "index"
   , "engines": { "node": ">=0.4.7" }

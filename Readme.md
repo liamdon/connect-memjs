@@ -19,21 +19,25 @@
       * Module dependencies.
       */
 
-      var express = require('express');
+      var express = require('express')
+        , session = require('express-session')
+        , favicon = require('serve-favicon')
+        , logger = require('morgan')
+        , cookieParser = require('cookie-parser')
+        , http = require('http')
+        , app = express();
 
       // pass the express to the connect memcached module
       // allowing it to inherit from express.session.Store
-      var MemcachedStore = require('connect-memjs')(express);
+      var MemcachedStore = require('connect-memjs')(session);
 
-      var app = express.createServer();
-
-      app.use(express.favicon());
+      app.use(favicon());
 
       // request logging
-      app.use(express.logger());
+      app.use(logger());
 
       // required to parse the session cookie
-      app.use(express.cookieParser());
+      app.use(cookieParser());
 
       // Populates:
       // - req.session
@@ -41,7 +45,7 @@
       // - req.sessionID (or req.session.id)
 
       var store = new MemcachedStore({servers: ['127.0.0.1:1121'], username: 'liam', password: 'hunter2'});
-      app.use(express.session({ 
+      app.use(session({ 
         secret: 'CatOnTheKeyboard', 
         store:  
       }));
@@ -55,8 +59,9 @@
         res.send('Viewed <strong>' + req.session.views + '</strong> times.');
       });
 
-      app.listen(3000);
-      console.log('Express app started on port 3000');
+      http.createServer(app).listen(3000, function(){
+        console.log('Express app started on port 3000');
+      });
 
 ## Options
 

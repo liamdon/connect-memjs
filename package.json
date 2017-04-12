@@ -1,19 +1,34 @@
 {
-    "name": "connect-memjs"
-  , "version": "0.1.0"
-  , "description": "Memcached session store for Connect backed by memjs"
-  , "keywords": ["memcached", "connection", "session", "store", "cache"]
-  , "author": "Michał Thoma <michal@balor.pl>"
-  , "contributors": [
+  "name": "connect-memjs",
+  "version": "0.1.0",
+  "description": "Memcached session store for Connect backed by memjs",
+  "keywords": [
+    "memcached",
+    "connection",
+    "session",
+    "store",
+    "cache"
+  ],
+  "author": "Michał Thoma <michal@balor.pl>",
+  "contributors": [
     "Liam Don <liamdon@gmail.com>"
-  ]
-  , "repository": {
+  ],
+  "repository": {
     "type": "git",
     "url": "https://github.com/liamdon/connect-memjs"
+  },
+  "dependencies": {
+    "debug": "^2.6.3",
+    "memjs": ">= 0.9.0"
+  },
+  "devDependencies": {
+    "connect": ">= 1.4.x"
+  },
+  "main": "index",
+  "engines": {
+    "node": ">=0.4.7"
+  },
+  "directories": {
+    "lib": "./lib"
   }
-  , "dependencies": { "memjs": ">= 0.9.0" }
-  , "devDependencies": { "connect": ">= 1.4.x" }
-  , "main": "index"
-  , "engines": { "node": ">=0.4.7" }
-  , "directories": { "lib": "./lib" }
 }

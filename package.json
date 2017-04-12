@@ -1,6 +1,6 @@
 {
   "name": "connect-memjs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Memcached session store for Connect backed by memjs",
   "keywords": [
     "memcached",
@@ -11,7 +11,11 @@
   ],
   "author": "Michał Thoma <michal@balor.pl>",
   "contributors": [
-    "Liam Don <liamdon@gmail.com>"
+    "Liam Don <liamdon@gmail.com>",
+    "Ross Kilgore <@rkilgore>",
+    "Leo Max <leohihimax@gmail.com>",
+    "Gabriel Mancini de Campos <gabriel.mancini@gmail.com>",
+    "Christophe Vidal, <@Krisa>"
   ],
   "repository": {
     "type": "git",

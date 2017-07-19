@@ -2,3 +2,7 @@ support
 test
 examples
 *.sock
+.npmignore
+History.md
+Makefile
+doc.json

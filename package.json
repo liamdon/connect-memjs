@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "debug": "^2.6.3",
-    "memjs": ">= 0.9.0"
+    "memjs": ">= 1.0.0-rc.1"
   },
   "devDependencies": {
     "connect": ">= 1.4.x"

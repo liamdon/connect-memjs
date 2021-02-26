@@ -47,7 +47,7 @@
       var store = new MemcachedStore({servers: ['127.0.0.1:1121'], username: 'liam', password: 'hunter2'});
       app.use(session({ 
         secret: 'CatOnTheKeyboard', 
-        store:  
+        store: store
       }));
 
       app.get('/', function(req, res){

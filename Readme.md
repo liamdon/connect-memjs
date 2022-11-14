@@ -27,7 +27,7 @@
         , http = require('http')
         , app = express();
 
-      // pass the express to the connect memcached module
+      // pass the session middleware to the connect memcached module
       // allowing it to inherit from express.session.Store
       var MemcachedStore = require('connect-memjs')(session);
 
